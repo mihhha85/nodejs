@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf8"/>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/style.css" type="text/css"/>
+</head>
+<body>
+<ul>
+    <% if(posts.length > 0) { %>
+        <% posts.forEach(item => { %>
+            <div class="post-box">
+                <a href="http://localhost:3001/contact/<%= item.id %>">
+                    <h3>
+                        <span><%= item.title %></span>
+                        <span><%= item.createdAt %></span>
+                    </h3>
+                    <p><%= item.text %></p>
+                    <h4>Author: <%= item.author %></h4>
+                </a>
+                <div class="post-trash" data-id="<%= item.id %>">x</div>
+            </div>
+        <% }) %>
+    <% } %>
+</ul>
+<script>
+    document.addEventListener('click', e => {
+        const id = e.target.getAttribute('data-id');
+        const elem = e.target;
+
+        if(id) {
+            fetch(`/post/${id}`, {
+                method: 'DELETE',
+            }).then(result => {
+                let promise = result.json();
+                //console.log(promise);
+                promise.then(result => {
+                    if(result.status === 'success') {
+                        elem.parentNode.remove();
+                    }
+                });
+            }).catch(error => console.log(error));
+        }
+    })
+</script>
+</body>
+</html>

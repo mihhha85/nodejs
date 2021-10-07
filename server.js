@@ -21,7 +21,7 @@ mongoose
     .then(res => console.log(successMsg('Connection DB')))
     .catch(err => console.error(errorMsg(err)));
 
-app.listen(PORT, 'localhost', err => {
+app.listen(PORT, err => {
     err ? console.error(errorMsg(err)) : console.log(successMsg(`Server listener ${PORT}`));
 })
 

@@ -17,12 +17,12 @@ const PORT = 3001;
 const db = "mongodb+srv://mihhha1985:nintendo27@cluster0.axbjz.mongodb.net/node-bloge?retryWrites=true&w=majority";
 
 mongoose
-    .connect(process.env.MONGO_DB)
+    .connect(db)
     .then(res => console.log(successMsg('Connection DB')))
     .catch(err => console.error(errorMsg(err)));
 
-app.listen(process.env.PORT, 'localhost', err => {
-    err ? console.error(errorMsg(err)) : console.log(successMsg(`Server listener ${process.env.PORT}`));
+app.listen(PORT, 'localhost', err => {
+    err ? console.error(errorMsg(err)) : console.log(successMsg(`Server listener ${PORT}`));
 })
 
 app.set('view engine', 'ejs');

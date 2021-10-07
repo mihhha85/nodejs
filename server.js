@@ -13,7 +13,7 @@ const  errorMsg = chalk.bgKeyword('white').redBright;
 const  successMsg = chalk.bgKeyword('green').white;
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 80;
 const db = "mongodb+srv://mihhha1985:nintendo27@cluster0.axbjz.mongodb.net/node-bloge?retryWrites=true&w=majority";
 
 mongoose

@@ -4,7 +4,7 @@
   "description": "my first project in nodejs ",
   "main": "server.js",
   "scripts": {
-    "start": "node server"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "mihhha",
